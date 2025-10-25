@@ -1,6 +1,6 @@
 {
     "name": "n8n-nodes-unrealircd",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "n8n community nodes for UnrealIRCd JSON-RPC API",
     "keywords": [
         "n8n-community-node-package",
@@ -9,7 +9,7 @@
         "json-rpc",
         "ircd"
     ],
-    "license": "MIT",
+    "license": "GPL-3.0-only",
     "homepage": "",
     "author": {
         "name": "ValwareIRC",
