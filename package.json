@@ -1,0 +1,78 @@
+{
+    "name": "n8n-nodes-unrealircd",
+    "version": "1.0.2",
+    "description": "n8n community nodes for UnrealIRCd JSON-RPC API",
+    "keywords": [
+        "n8n-community-node-package",
+        "unrealircd",
+        "irc",
+        "json-rpc",
+        "ircd"
+    ],
+    "license": "MIT",
+    "homepage": "",
+    "author": {
+        "name": "ValwareIRC",
+        "email": "valerie@valware.co.uk"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ValwareIRC/n8n-nodes-unrealircd.git"
+    },
+    "engines": {
+        "node": ">=20.15"
+    },
+    "main": "index.js",
+    "scripts": {
+    "build": "npx rimraf dist && tsc && mkdir -p dist && find nodes credentials -name '*.js' -exec cp --parents {} dist \\; && find nodes credentials -name '*.svg' -exec cp --parents {} dist \\; && find nodes credentials -name '*.png' -exec cp --parents {} dist \\; && for dir in dist/nodes/*/; do cp nodes/unrealircd.svg \"$dir\"; done",
+        "dev": "tsc --watch",
+        "format": "prettier nodes credentials --write",
+        "lint": "eslint nodes credentials package.json",
+        "lintfix": "eslint nodes credentials package.json --fix",
+        "prepublishOnly": "npm run build"
+    },
+    "files": [
+        "dist"
+    ],
+    "n8n": {
+        "n8nNodesApiVersion": 1,
+        "credentials": [
+            "dist/credentials/UnrealIRCdCredentialsApi.credentials.js"
+        ],
+        "nodes": [
+            "dist/nodes/UnrealIRCdUser/UnrealIRCdUser.node.js",
+            "dist/nodes/UnrealIRCdUserTool/UnrealIRCdUserTool.node.js",
+            "dist/nodes/UnrealIRCdChannel/UnrealIRCdChannel.node.js",
+            "dist/nodes/UnrealIRCdChannelTool/UnrealIRCdChannelTool.node.js",
+            "dist/nodes/UnrealIRCdServer/UnrealIRCdServer.node.js",
+            "dist/nodes/UnrealIRCdServerTool/UnrealIRCdServerTool.node.js",
+            "dist/nodes/UnrealIRCdBan/UnrealIRCdBan.node.js",
+            "dist/nodes/UnrealIRCdBanTool/UnrealIRCdBanTool.node.js",
+            "dist/nodes/UnrealIRCdSpamfilter/UnrealIRCdSpamfilter.node.js",
+            "dist/nodes/UnrealIRCdSpamfilterTool/UnrealIRCdSpamfilterTool.node.js",
+            "dist/nodes/UnrealIRCdLog/UnrealIRCdLog.node.js",
+            "dist/nodes/UnrealIRCdLogTool/UnrealIRCdLogTool.node.js",
+            "dist/nodes/UnrealIRCdRpc/UnrealIRCdRpc.node.js",
+            "dist/nodes/UnrealIRCdRpcTool/UnrealIRCdRpcTool.node.js",
+            "dist/nodes/UnrealIRCdStats/UnrealIRCdStats.node.js",
+            "dist/nodes/UnrealIRCdStatsTool/UnrealIRCdStatsTool.node.js",
+            "dist/nodes/UnrealIRCdWhowas/UnrealIRCdWhowas.node.js",
+            "dist/nodes/UnrealIRCdWhowasTool/UnrealIRCdWhowasTool.node.js"
+        ]
+    },
+    "devDependencies": {
+        "@types/node": "^24.3.0",
+        "@typescript-eslint/parser": "~8.32.0",
+        "eslint": "^8.57.0",
+        "eslint-plugin-n8n-nodes-base": "^1.16.3",
+        "gulp": "^5.0.0",
+        "prettier": "^3.5.3",
+        "typescript": "^5.8.3"
+    },
+    "dependencies": {
+        "ws": "^8.18.0"
+    },
+    "peerDependencies": {
+        "n8n-workflow": "*"
+    }
+}
