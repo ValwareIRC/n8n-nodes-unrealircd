@@ -39,8 +39,7 @@ class UnrealIRCdJsonRpc {
         }
     }
     async makeRequest(method, params = {}) {
-        const protocol = this.credentials.useHttps ? 'https' : 'http';
-        const baseUrl = `${protocol}://${this.credentials.host}:${this.credentials.port}`;
+    const baseUrl = this.credentials.host;
         const requestId = Math.floor(Math.random() * 1000000);
         const requestBody = {
             jsonrpc: '2.0',
@@ -51,7 +50,7 @@ class UnrealIRCdJsonRpc {
         try {
             const options = {
                 method: 'POST',
-                url: `${baseUrl}/api`,
+                url: baseUrl,
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -75,9 +74,7 @@ class UnrealIRCdJsonRpc {
                 params,
                 error: error instanceof Error ? error.message : String(error),
                 credentials: {
-                    host: this.credentials.host,
-                    port: this.credentials.port,
-                    useHttps: this.credentials.useHttps
+                    host: this.credentials.host
                 }
             };
             return this.redactData(errorResponse);

@@ -26,22 +26,8 @@ class UnrealIRCdCredentialsApi {
                 displayName: 'Host',
                 name: 'host',
                 type: 'string',
-                default: 'https://example.com',
-                description: 'The host to connect to. Can be a URL or an IP address.',
-            },
-            {
-                displayName: 'Port',
-                name: 'port',
-                type: 'number',
-                default: 8600,
-                description: 'The port to connect to.',
-            },
-            {
-                displayName: 'Use HTTPS',
-                name: 'useHttps',
-                type: 'boolean',
-                default: true,
-                description: 'Whether to use HTTPS for the connection.',
+                default: 'https://example.com/api',
+                description: 'The full URL to connect to, e.g. https://localhost:8600/api',
             }
         ];
         this.authenticate = {
@@ -58,8 +44,8 @@ class UnrealIRCdCredentialsApi {
         };
         this.test = {
             request: {
-                baseURL: '={{ $credentials.useHttps ? "https" : "http" }}://={{ $credentials.host }}:={{ $credentials.port }}',
-                url: '/api',
+                baseURL: '={{ $credentials.host }}',
+                url: '',
             },
         };
     }
