@@ -61,6 +61,7 @@ class UnrealIRCdJsonRpc {
                 },
                 ignoreHttpStatusErrors: true,
                 rejectUnauthorized: !this.credentials.allowSelfSigned,
+                allowUnauthorizedCerts: !!this.credentials.allowSelfSigned,
             };
             const response = await this.executeFunctions.helpers.httpRequest(options);
             if (response.error) {
