@@ -60,6 +60,7 @@ class UnrealIRCdJsonRpc {
                     password: this.credentials.password,
                 },
                 ignoreHttpStatusErrors: true,
+                rejectUnauthorized: !this.credentials.allowSelfSigned,
             };
             const response = await this.executeFunctions.helpers.httpRequest(options);
             if (response.error) {

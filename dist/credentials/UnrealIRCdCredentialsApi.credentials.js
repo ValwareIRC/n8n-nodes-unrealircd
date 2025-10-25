@@ -6,7 +6,7 @@ class UnrealIRCdCredentialsApi {
         this.name = 'unrealIRCdCredentialsApi';
         this.displayName = 'UnrealIRCd Credentials';
         this.documentationUrl = 'https://www.unrealircd.org/docs/JSON-RPC';
-        this.properties = [
+    this.properties = [
             {
                 displayName: 'User Name',
                 name: 'username',
@@ -28,6 +28,13 @@ class UnrealIRCdCredentialsApi {
                 type: 'string',
                 default: 'https://example.com/api',
                 description: 'The full URL to connect to, e.g. https://localhost:8600/api',
+            },
+            {
+                displayName: 'Ignore SSL Certificate Errors',
+                name: 'allowSelfSigned',
+                type: 'boolean',
+                default: false,
+                description: 'Allow connections to servers with self-signed or invalid SSL certificates.'
             }
         ];
         this.authenticate = {
