@@ -9,7 +9,9 @@ n8n community nodes for UnrealIRCd JSON-RPC API
 
 ## Installation
 
-Install via n8n's community nodes UI or with npm:
+Install via n8n's community nodes UI with `n8n-nodes-unrealircd`
+
+or with npm:
 
 ```bash
 npm install n8n-nodes-unrealircd
