@@ -49,7 +49,11 @@ npm publish
 [GitHub](https://github.com/unrealircd/n8n-nodes-unrealircd)
 
 ## License
-MIT
+GPLv3 or later
 
 ## Support
-For help, visit [UnrealIRCd Community](https://www.unrealircd.org/) or email support@unrealircd.org.
+For help, see:
+
+- [UnrealIRCd Docs](https://www.unrealircd.org/docs/Main_Page)
+- [UnrealIRCd Forums](https://forums.unrealircd.org/)
+- Ask Valware in #unreal-support on irc.unrealircd.org
